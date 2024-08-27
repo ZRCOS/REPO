@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputText = document.getElementById('output-text');
     const encryptBtn = document.getElementById('encrypt');
     const decryptBtn = document.getElementById('decrypt');
-    const copyInputBtn = document.getElementById('copy-input');
-    const pasteInputBtn = document.getElementById('paste-input');
-    const copyOutputBtn = document.getElementById('copy-output');
+    const copyBtn = document.getElementById('copy');
+    const pasteBtn = document.getElementById('paste');
 
     function validateInput(input) {
         return /^[a-z\s]*$/.test(input);
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (validateInput(text)) {
             outputText.value = encrypt(text);
         } else {
-            alert('Por favor, ingrese solo letras minúsculas sin caracteres especiales.');
+            alert('Por favor, ingrese solo letras minúsculas sin acentos.');
         }
     });
 
@@ -43,27 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (validateInput(text)) {
             outputText.value = decrypt(text);
         } else {
-            alert('Por favor, ingrese solo letras minúsculas sin caracteres especiales.');
+            alert('Por favor, ingrese solo letras minúsculas sin acentos.');
         }
     });
 
-    copyInputBtn.addEventListener('click', () => {
-        inputText.select();
+    copyBtn.addEventListener('click', () => {
+        outputText.select();
         document.execCommand('copy');
+        alert('Texto copiado al portapapeles');
     });
 
-    pasteInputBtn.addEventListener('click', async () => {
+    pasteBtn.addEventListener('click', async () => {
         try {
             const text = await navigator.clipboard.readText();
             inputText.value = text;
         } catch (err) {
             console.error('Failed to read clipboard contents: ', err);
+            alert('No se pudo pegar el texto. Intente copiar y pegar manualmente.');
         }
-    });
-
-    copyOutputBtn.addEventListener('click', () => {
-        outputText.select();
-        document.execCommand('copy');
     });
 
     inputText.addEventListener('input', () => {
