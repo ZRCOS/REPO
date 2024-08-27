@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Texto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Encriptador de Texto</h1>
-        <div class="input-container">
-            <textarea id="input-text" placeholder="Ingrese el texto aquí"></textarea>
-            <div class="buttons-container">
-                <button id="copy-input">Copiar</button>
-                <button id="paste-input">Pegar</button>
-            </div>
-        </div>
-        <div class="buttons-container">
-            <button id="encrypt">Encriptar</button>
-            <button id="decrypt">Desencriptar</button>
-        </div>
-        <div class="output-container">
-            <textarea id="output-text" readonly></textarea>
-            <button id="copy-output">Copiar</button>
-        </div>
+        <header>
+            <h1>Encriptador de Texto</h1>
+        </header>
+        <main>
+            <section class="input-section">
+                <textarea id="input-text" placeholder="Ingrese el texto aquí"></textarea>
+                <div class="warning">
+                    <p>⚠️ Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="buttons">
+                    <button id="encrypt" class="btn primary">Encriptar</button>
+                    <button id="decrypt" class="btn secondary">Desencriptar</button>
+                </div>
+            </section>
+            <section class="output-section">
+                <textarea id="output-text" readonly></textarea>
+                <button id="copy" class="btn">Copiar</button>
+            </section>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
