@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>encriptador</title>
+    <title>Encriptador de Texto</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Encriptador de Texto</h1>
+        <div class="input-container">
+            <textarea id="input-text" placeholder="Ingrese el texto aquí"></textarea>
+            <button id="copy-input">Copiar</button>
+            <button id="paste-input">Pegar</button>
+        </div>
+        <div class="buttons-container">
+            <button id="encrypt">Encriptar</button>
+            <button id="decrypt">Desencriptar</button>
+        </div>
+        <div class="output-container">
+            <textarea id="output-text" readonly></textarea>
+            <button id="copy-output">Copiar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
